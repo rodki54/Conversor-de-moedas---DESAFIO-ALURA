@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="sortcut icon" href="Imagens/dollar-symbol-money-pngrepo-com.png" type="image/x-icon" />
+    <title>Conversor de Moedas</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-image: url(Imagens/ImagemFundoPreta.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 2vw;
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            text-align: center;
+            color: rgb(255, 221, 27);
+            padding-right: 221px;
+        }
+
+        .container {
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgb(50, 50, 50);
+            width: 600px;
+            height: 700px;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 10px;
+            left: 1420;
+            right: 634;
+            padding: 60px;
+            margin: 20px;
+        }
+
+        .alura-logo {
+            margin: 0 0 0 28.5rem;
+        }
+
+        #moeda-para {
+            background-color: white;
+            font-family: "Secular One";
+            font-size: 2rem;
+            color: rgb(35, 35, 35);
+            width: 244px;
+            height: 65px;
+            left: 944px;
+            bottom: 420px;
+            top: 354px;
+            right: 1188px;
+            margin: 0.05rem 1.25rem 1.75rem 0;
+            margin-right: 138px;
+            float: right;
+        }
+
+        #moeda-atual -webkit-inner-spin-button {
+            -webkit-appearance: none;
+            float: left;
+        }
+
+        .currency-type-to,
+        .tipoMoeda {
+            font-family: "Secular One";
+            font-size: 2rem;
+            color: rgb(35, 35, 35);
+            width: 8rem;
+            padding: 0.75rem;
+            margin: 0.05rem 1.25rem 1.75rem 5.25rem;
+        }
+
+        .type {
+            display: block;
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            font-size: 1.5rem;
+            color: rgb(218, 219, 214);
+            margin: 0 0 1rem 5.25rem;
+            padding-right: 100px;
+        }
+
+        .tipoMoeda,
+        .currency-type-to {
+            font-family: "Secular One";
+            font-size: 2rem;
+            color: rgb(2, 2, 2);
+            width: 7rem;
+            padding: 0.75rem;
+            margin: 0.05rem 1.25rem 1.75rem 5.25rem;
+        }
+
+        #moeda-atual {
+            font-family: "Secular One";
+            font-size: 2rem;
+            color: rgb(35, 35, 35);
+            width: 13.5rem;
+            padding: 0.75rem;
+            margin: 0.05rem 1.25rem 1.75rem 0;
+        }
+
+        button {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            width: 100%;
+            color: rgb(30, 30, 30);
+            background: rgb(240, 208, 30);
+            text-transform: uppercase;
+            font-size: 2rem;
+            padding: 1.2rem;
+            text-align: center;
+            margin: 4rem 0 0 0;
+            transition: 200ms;
+        }
+
+        button:hover {
+            background: rgb(213, 224, 114);
+        }
+
+        #dev {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: large;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            color: rgb(233, 191, 85);
+        }
+
+        #bottom {
+            width: 577px;
+            height: 71px;
+            padding-top: 25px;
+        }
+    </style>
+    <main>
+        <div class="container">
+            <div class="box">
+                <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg"
+                    alt="imersãodev" />
+                <h1>Conversor de moedas</h1>
+                <label class="type" for="currency">DE:</label>
+                <section class="Moeda1">
+                    <div>
+                        <select class="tipoMoeda" name="moeda">
+                            <option value="usd">USD</option>
+                            <option value="brl">BRL</option>
+                            <option value="eur">EUR</option>
+                        </select>
+                        <input id="moeda-atual" type="number" placeholder="00.00" required autofocus />
+                    </div>
+                </section>
+                <label class="type" for="current-value">Para:</label>
+                <section class="Moeda2">
+                    <div>
+                        <select class="currency-type-to" name="currency">
+                            <option value="brl">BRL</option>
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                        </select>
+                        <p id="moeda-para"></p>
+                    </div>
+                    <a class="logo-alura" href="https://alura.com.br/" target="_blank"><img
+                            src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt=""
+                            class="alura-logo" /></a>
+                    <button>Converter</button>
+                </section>
+                <div id="bottom">
+                    <strong><a id="dev" href="https://www.linkedin.com/in/rodrigo-raphael-651822181/">Desenvolvido por:
+                            Rodrigo Raphael</a></strong>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    function currencyConverter() {
+        var currencyTypeFrom = document.querySelector(".tipoMoeda").value;
+
+        var currencyValueFrom = Number(
+            document.querySelector("#moeda-atual").value
+        );
+
+        var currencyTypeTo = document.querySelector(".currency-type-to").value;
+
+        if (currencyTypeFrom == "brl") {
+            if (currencyTypeTo == "usd") {
+                convertedCurrency = currencyValueFrom / 5.51;
+            } else if (currencyTypeTo == "eur") {
+                convertedCurrency = currencyValueFrom / 6.58;
+            } else {
+                convertedCurrency = currencyValueFrom;
+            }
+        } else if (currencyTypeFrom == "usd") {
+            if (currencyTypeTo == "brl") {
+                convertedCurrency = currencyValueFrom * 5.51;
+            } else if (currencyTypeTo == "eur") {
+                convertedCurrency = currencyValueFrom / 1.19;
+            } else {
+                convertedCurrency = currencyValueFrom;
+            }
+        } else {
+            if (currencyTypeTo == "brl") {
+                convertedCurrency = currencyValueFrom * 6.58;
+            } else if (currencyTypeTo == "usd") {
+                convertedCurrency = currencyValueFrom * 1.19;
+            } else {
+                convertedCurrency = currencyValueFrom;
+            }
+        }
+
+        document.querySelector(
+            "#moeda-para"
+        ).innerHTML = convertedCurrency.toFixed(2);
+    }
+
+    var convertedCurrency = 0;
+
+    document.querySelector("#moeda-para").innerHTML ==
+        convertedCurrency.toFixed(2);
+
+    const converterBotton = document.querySelector("button");
+
+    converterBotton.onclick = currencyConverter;
+</script>
+
+</html>
